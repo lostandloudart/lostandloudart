@@ -1,0 +1,12 @@
+baseURL = 'https://lostandloudart.github.io/'
+languageCode = 'en-us'
+title = 'Lost and Loud Creative Studio'
+theme = ''
+
+[params]
+  description = "Welcome to our creative studio, where digital stories come to life with soul and spark — born and raised in the wild Patagonia."
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
