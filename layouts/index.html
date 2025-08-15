@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Site.Title }}</title>
+    <meta name="description" content="{{ .Site.Params.description }}">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #e94560 100%);
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="0.5" fill="white" opacity="0.05"/><circle cx="40" cy="80" r="1.5" fill="white" opacity="0.08"/><circle cx="90" cy="90" r="0.8" fill="white" opacity="0.06"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 2;
+            letter-spacing: -1px;
+            color: #ffffff;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            max-width: 900px;
+            margin: 0 auto 40px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            line-height: 1.8;
+        }
+
+        .contact-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-button:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .team-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .member-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            overflow: hidden;
+            border: 4px solid #667eea;
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-name {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .member-bio {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 1rem;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .team-member {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Lost and Loud Creative Studio</h1>
+            <p class="subtitle">{{ .Site.Params.description }}</p>
+            <a href="mailto:valerosfilm@gmail.com" class="contact-button">Get in Touch</a>
+        </div>
+    </header>
+
+    <section class="team-section">
+        <div class="container">
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="{{ .Site.BaseURL }}images/fermin.jpeg" alt="Fermin Valeros">
+                    </div>
+                    <h3 class="member-name">Fermin Valeros</h3>
+                    <p class="member-bio">From Patagonia, Fermín creates fictional worlds with soul — blending visual design, sculpture, digital art, and storytelling. He draws, sculpts, animates, and dreams — crafting stories you can see, feel, and sometimes walk through.</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="{{ .Site.BaseURL }}images/veronica.jpeg" alt="Veronica Valeros">
+                    </div>
+                    <h3 class="member-name">Veronica Valeros</h3>
+                    <p class="member-bio">I'm a builder and a maker with a head full of questions and hands that won't sit still. From malware and honeypots to art, I craft with code, print in plastic, and dream in noise.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; {{ now.Year }} Lost and Loud Creative Studio. Born and raised in the wild Patagonia.</p>
+        </div>
+    </footer>
+</body>
+</html>
